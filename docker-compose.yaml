@@ -15,7 +15,7 @@ services:
       - mysql:/var/lib/mysql
       - $PWD/mysql/init.sql:/docker-entrypoint-initdb.d/init.sql
   spring_app:
-    container_name: ski
+    container_name: ski:v5
     image: ski
     restart: on-failure
     build: ../../../Downloads

@@ -1,7 +1,7 @@
 pipeline {
     environment {
         dockerImageName = "ski"
-       // DOCKER_IMAGE_TAG = "v${BUILD_NUMBER}" // Using Jenkins BUILD_NUMBER as the tag
+       DOCKER_IMAGE_TAG = "v${BUILD_NUMBER}" // Using Jenkins BUILD_NUMBER as the tag
     }
     agent any
     stages {

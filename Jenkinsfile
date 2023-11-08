@@ -76,9 +76,9 @@ stage("Deploy to private registry") {
         stage("Start app and db") {
             steps {
 
-                                          
 
-                                           sh "echo ${dockerPassword} | docker login -u saharzouari --password-stdin hub.docker.com/repository/docker/saharzouari/ski/"
+
+                                           sh "echo ${dockerPassword} | docker login -u saharzouari -p 191JFT2516 hub.docker.com/repository/docker/saharzouari/ski/"
                                            sh "docker-compose pull" // Pull the Docker image from the private registry
                                            sh "docker-compose up -d"  // Start the application and database containers
             }

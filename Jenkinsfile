@@ -32,14 +32,14 @@ stage('SonarQube ') {
                     sh 'mvn sonar:sonar -Dsonar.login=admin -Dsonar.password=aziz'
                    }
              }
-
+*/
         stage("Build Docker image") {
             steps {
                 script {
                     sh 'docker build -t $dockerImageName:$DOCKER_IMAGE_TAG -f Dockerfile ./'
                 }
             }
-        }
+        }/*
         stage('dockerhub') {
                                           steps {
 
@@ -71,14 +71,14 @@ stage("Deploy to private registry") {
             sh "docker push ${nexusRegistryUrl}$dockerImageName:$DOCKER_IMAGE_TAG"
         }
     }
-}
+}*/
         stage("Start app and db") {
             steps {
                 sh "docker-compose up -d"
             }
         }
 
-
+/*
 
        stage('Deploy') {
                     steps {

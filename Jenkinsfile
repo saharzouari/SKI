@@ -41,14 +41,14 @@ stage('SonarQube ') {
             }
         }
 
-        stage('dockerhub') {
+    /*    stage('dockerhub') {
                                           steps {
 
                                      sh "docker login -u saharzouari -p 191JFT2516"
                                      sh "docker tag $dockerImageName:$DOCKER_IMAGE_TAG saharzouari/ski:$DOCKER_IMAGE_TAG"
                                      sh "docker push  saharzouari/ski:$DOCKER_IMAGE_TAG"
                                           }
-                    }/*
+                    }
 
 stage("Deploy to private registry") {
     steps {

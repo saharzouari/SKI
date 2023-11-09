@@ -36,7 +36,7 @@ stage('SonarQube ') {
         stage("Build Docker image") {
             steps {
                 script {
-                    sh "docker build -t $dockerImageName:$DOCKER_IMAGE_TAG -f Dockerfile ./"
+                    sh "docker build -t $dockerImageName -f Dockerfile ./"
                 }
             }
         }

@@ -75,7 +75,7 @@ stage("Deploy to private registry") {
 }*/
         stage("Start app and db") {
             steps {
-              sh "docker-compose pull"
+              sh "docker login -u saharzouari -password-stdin"
                 sh "docker-compose up -d"
             }
         }

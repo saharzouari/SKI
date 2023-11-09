@@ -80,13 +80,13 @@ stage("Deploy to private registry") {
             }
         }
 
-/*
+
 
        stage('Deploy') {
                     steps {
                            sh 'mvn deploy -DskipTests=true'
                                 }
-                            }*/
+                            }
 
 /*
 //

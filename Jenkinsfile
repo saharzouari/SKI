@@ -75,6 +75,7 @@ stage("Deploy to private registry") {
 }*/
         stage("Start app and db") {
             steps {
+              sh "docker-compose pull"
                 sh "docker-compose up -d"
             }
         }

@@ -3,7 +3,7 @@ pipeline {
 
     environment {
         SONAR_TOKEN = credentials('Sonar_Token')
-        DOCKERHUB_CREDENTIALS = credentials('dockerhub-seif')
+        
     }
 
     stages {

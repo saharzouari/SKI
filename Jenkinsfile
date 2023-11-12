@@ -45,29 +45,7 @@ pipeline {
             }
         }
 
-        stage('Build docker image') {
-            steps {
-                 sh "sudo docker build -t sahnounseifallah8/stationski-1.1.0.jar ."
-            }
-        }
-        stage('login to dockerhub') {
-            steps{
-                sh 'echo $DOCKERHUB_CREDENTIALS_PSW | sudo docker login -u $DOCKERHUB_CREDENTIALS_USR --password-stdin'
-            }
-        }
 
-
-       stage('push image') {
-            steps{
-                sh 'sudo docker push sahnounseifallah8/stationski-1.1.0.jar'
-            }
-        }
-
-         stage('Docker Compose') {
-            steps{
-                sh 'sudo docker compose up -d'
-            }
-        }
 
 
     }

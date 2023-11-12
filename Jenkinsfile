@@ -3,6 +3,7 @@ pipeline {
 
     environment {
         SONAR_TOKEN = credentials('Sonar_Token')
+        DOCKERHUB_CREDENTIALS = credentials('dockerhub-leila')
 
     }
 
@@ -44,6 +45,23 @@ pipeline {
                 }
             }
         }
+         stage('Build docker image') {
+                    steps {
+                         sh "sudo docker build -t leilabencheikh/stationski-1.1.0 ."
+                    }
+                }
+                stage('login to dockerhub') {
+                    steps{
+                        sh 'echo $DOCKERHUB_CREDENTIALS_PSW | sudo docker login -u $DOCKERHUB_CREDENTIALS_USR --password-stdin'
+                    }
+                }
+
+
+               stage('push image') {
+                    steps{
+                        sh 'sudo docker push leilabencheikh/stationski-1.1.0 '
+                    }
+                }
 
 
 

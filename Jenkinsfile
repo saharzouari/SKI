@@ -47,7 +47,7 @@ pipeline {
         }
          stage('Build docker image') {
                     steps {
-                         sh "sudo docker build -t leilabencheikh/stationski-1.1.0 ."
+                         sh " docker build -t leilabencheikh/stationski-1.1.0 ."
                     }
                 }
                 stage('login to dockerhub') {

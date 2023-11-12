@@ -1,4 +1,4 @@
-version: '2.3.3'
+version: '2.21.0'
 
 networks:
   spring-network:
@@ -15,7 +15,7 @@ services:
       - spring-network
 
   Stationski:
-    image: sahnounseifallah8/stationski-1.1.0.jar
+    image: leilabencheikh/stationski-1.1.0
     ports:
       - 8089:8089
     environment:

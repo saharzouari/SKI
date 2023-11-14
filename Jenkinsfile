@@ -96,4 +96,4 @@ stage("Deploy to private registry") {
         }
 
     }
-}
+}}

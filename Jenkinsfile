@@ -2,10 +2,10 @@ pipeline {
     environment {
         dockerImageName = "ski"
        DOCKER_IMAGE_TAG = "v${BUILD_NUMBER}" // Using Jenkins BUILD_NUMBER as the tag
-       def dockerTag = 'latest'
-                           def nexusRegistryUrl = '172.17.0.5:8082/repository/ski/'
-                           def dockerUsername = 'admin'
-                           def dockerPassword = '191JFT2516'
+       dockerTag = 'latest'
+                           nexusRegistryUrl = '172.17.0.5:8082/repository/ski/'
+                           dockerUsername = 'admin'
+                           dockerPassword = '191JFT2516'
     }
     agent any
     stages {

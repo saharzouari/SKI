@@ -32,7 +32,11 @@ stage('SonarQube ') {
                     sh 'mvn sonar:sonar -Dsonar.login=admin -Dsonar.password=191JFT2516'
                    }
              }
-
+stage('Deploy') {
+                    steps {
+                           sh 'mvn deploy -DskipTests=true'
+                                }
+                            }
         stage("Build Docker image") {
             steps {
                 script {
@@ -82,11 +86,7 @@ stage("Deploy to private registry") {
 
 
 
-       stage('Deploy') {
-                    steps {
-                           sh 'mvn deploy -DskipTests=true'
-                                }
-                            }
+
 }
 
 // deploymentRepo

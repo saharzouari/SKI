@@ -41,7 +41,7 @@ stage('SonarQube ') {
             }
         }
 
-    /*    stage('dockerhub') {
+       stage('dockerhub') {
                                           steps {
 
                                      sh "docker login -u saharzouari -p 191JFT2516"
@@ -49,7 +49,7 @@ stage('SonarQube ') {
                                      sh "docker push  saharzouari/ski:$DOCKER_IMAGE_TAG"
                                           }
                     }
-
+/*
 stage("Deploy to private registry") {
     steps {
         script {
@@ -82,25 +82,18 @@ stage("Deploy to private registry") {
 
 
 
-  /*     stage('Deploy') {
+       stage('Deploy') {
                     steps {
                            sh 'mvn deploy -DskipTests=true'
                                 }
-                            }*/
+                            }
 
-/*
-//
-        stage("Deploy Dokcer Image to private registry") {
-            steps {
-                sh "..............."
-            }
-        }
-    }
+
 // deploymentRepo
     post {
         always {
             cleanWs()
         }
-*/
+
     }
 }

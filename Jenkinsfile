@@ -53,30 +53,24 @@ stage('Deploy') {
                                      sh "docker push  saharzouari/ski:$DOCKER_IMAGE_TAG"
                                           }
                     }
-/*
-stage("Deploy to private registry") {
-    steps {
-        script {
-            def nexusRegistryUrl = '172.20.10.1:8082/'
 
+     stage("Deploy Docker Image to private registry") {
+            steps {
+                script {
+                    def dockerImage = 'ski'
+                    def dockerTag = 'latest'
+                    def nexusRegistryUrl = '172.17.0.5:8082/repository/ski/'
+                    def dockerUsername = 'admin'
+                    def dockerPassword = '191JFT2516'
 
+                    sh "docker build -t ${dockerImage}:${dockerTag} ."
+                    sh "docker tag ${dockerImage}:${dockerTag} ${nexusRegistryUrl}${dockerImage}:${dockerTag}"
+                    sh "echo ${dockerPassword} | docker login -u ${dockerUsername} --password-stdin ${nexusRegistryUrl}"
+                    sh "docker push ${nexusRegistryUrl}${dockerImage}:${dockerTag}"
+                }
 
-
-            // Build the Docker image
-            sh "docker build -t $dockerImageName:$DOCKER_IMAGE_TAG ."
-
-            // Tag the Docker image
-            sh "docker tag $dockerImageName:$DOCKER_IMAGE_TAG ${nexusRegistryUrl}$dockerImageName:$DOCKER_IMAGE_TAG"
-
-            // Log in to the private registry
-
-            sh "echo ${dockerPassword} | docker login --username ${dockerUsername} --password-stdin ${nexusRegistryUrl}"
-
-            // Push the Docker image to the private registry
-            sh "docker push ${nexusRegistryUrl}$dockerImageName:$DOCKER_IMAGE_TAG"
+            }
         }
-    }
-}*/
         stage("Start app and db") {
             steps {
               sh "docker login -u saharzouari -p 191JFT2516"

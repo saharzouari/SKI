@@ -87,7 +87,7 @@ stage("Deploy to private registry") {
                            sh 'mvn deploy -DskipTests=true'
                                 }
                             }
-
+}
 
 // deploymentRepo
     post {
@@ -96,4 +96,4 @@ stage("Deploy to private registry") {
         }
 
     }
-}}
+}

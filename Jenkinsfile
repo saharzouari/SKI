@@ -84,10 +84,5 @@ stage('Deploy') {
 }
 
 // deploymentRepo
-    post {
-        always {
-            cleanWs()
-        }
-
-    }
+ 
 }

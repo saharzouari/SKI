@@ -3,7 +3,7 @@ pipeline {
         dockerImageName = "ski"
        DOCKER_IMAGE_TAG = "v${BUILD_NUMBER}" // Using Jenkins BUILD_NUMBER as the tag
        dockerTag = 'latest'
-                           nexusRegistryUrl = '172.17.0.5:8082/repository/ski/'
+                           nexusRegistryUrl = '192.168.56.2:8082/repository/ski/'
                            dockerUsername = 'admin'
                            dockerPassword = '191JFT2516'
     }
@@ -58,19 +58,7 @@ stage('Deploy') {
                                           }
                     }
 */
-     stage("Deploy Docker Image to private registry") {
-            steps {
-                script {
-
-
-                    sh "docker build -t ${dockerImageName}:${dockerTag} ."
-                    sh "docker tag ${dockerImageName}:${dockerTag} ${nexusRegistryUrl}${dockerImageName}:${dockerTag}"
-                    sh "docker login -u ${dockerUsername} -p 191JFT2516 ${nexusRegistryUrl}"
-                    sh "docker push ${nexusRegistryUrl}${dockerImageName}:${dockerTag}"
-                }
-
-            }
-        }
+    
         stage("Start app and db") {
             steps {
               sh "docker login -u saharzouari -p 191JFT2516"

@@ -4,5 +4,4 @@ ARG JAR_FILE=stationSki-1.1.0.jar
 ADD ${NEXUS_URL}${JAR_FILE} stationski-1.1.0.jar
 EXPOSE 8089
 ENTRYPOINT ["java","-jar","/stationSki-1.1.0.jar"]
-
-
+RUN sed -i 's/deb.debian.org/mirrors.ubuntu.com/g' /etc/apt/sources.list

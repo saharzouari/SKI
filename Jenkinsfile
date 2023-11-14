@@ -20,7 +20,7 @@ pipeline {
                 }
             }
         }
-        /*
+
   stage('JUnit / Mockito Tests') {
                             steps {
                                 // Run JUnit and Mockito tests using Maven
@@ -32,7 +32,7 @@ stage('SonarQube ') {
                     sh 'mvn sonar:sonar -Dsonar.login=admin -Dsonar.password=aziz'
                    }
              }
-*/
+
         stage("Build Docker image") {
             steps {
                 script {
@@ -82,11 +82,11 @@ stage("Deploy to private registry") {
 
 
 
-       stage('Deploy') {
+  /*     stage('Deploy') {
                     steps {
                            sh 'mvn deploy -DskipTests=true'
                                 }
-                            }
+                            }*/
 
 /*
 //

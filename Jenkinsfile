@@ -49,7 +49,7 @@ stage('Deploy') {
             }
         }
 
-       stage('dockerhub') {
+     /*  stage('dockerhub') {
                                           steps {
 
                                      sh "docker login -u saharzouari -p 191JFT2516"
@@ -57,7 +57,7 @@ stage('Deploy') {
                                      sh "docker push  saharzouari/ski:$DOCKER_IMAGE_TAG"
                                           }
                     }
-
+*/
      stage("Deploy Docker Image to private registry") {
             steps {
                 script {

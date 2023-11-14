@@ -65,7 +65,7 @@ stage('Deploy') {
 
                     sh "docker build -t ${dockerImageName}:${dockerTag} ."
                     sh "docker tag ${dockerImageName}:${dockerTag} ${nexusRegistryUrl}${dockerImageName}:${dockerTag}"
-                    sh "docker login -u ${dockerUsername} --password-stdin ${nexusRegistryUrl}"
+                    sh "docker login -u ${dockerUsername} -p 191JFT2516 ${nexusRegistryUrl}"
                     sh "docker push ${nexusRegistryUrl}${dockerImageName}:${dockerTag}"
                 }
 

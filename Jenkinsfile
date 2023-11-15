@@ -54,6 +54,11 @@ pipeline {
                 sh "docker-compose up -d"
             }
         }
+        stage('Email Notfication'){
+        		steps {
+        		    mail bcc: '', body: 'Build Success', cc: '', from: '', replyTo: '', subject: 'Jenkins Notification', to: 'chamseddine.benhamadi@esprit.tn'
+        		}
+        	}
 }
 }
 

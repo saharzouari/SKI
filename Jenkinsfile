@@ -26,16 +26,16 @@ pipeline {
                 sh "mvn test"
             }
         }
-        // stage('SONARQUBE') {
-        //     steps {
-        //         sh "mvn sonar:sonar -Dsonar.login=admin -Dsonar.password=sonar"
-        //     }
-        // }
-        // stage('Nexus Deploy') {
-        //     steps {
-        //             sh 'mvn deploy -Dmaven.test.skip=true'
-        //     }
-        //  }
+         stage('SONARQUBE') {
+             steps {
+                 sh "mvn sonar:sonar -Dsonar.login=admin -Dsonar.password=sonar"
+             }
+         }
+         stage('Nexus Deploy') {
+             steps {
+                    sh 'mvn deploy -Dmaven.test.skip=true'
+             }
+          }
          stage('Build docker image') {
             steps {
                 sh "docker build -t ${DOCKER_IMAGE_NAME}:${DOCKER_IMAGE_TAG} ."

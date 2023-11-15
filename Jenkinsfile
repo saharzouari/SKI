@@ -69,15 +69,16 @@ pipeline {
             }
         }
         stage('prometheus') {
-                    steps{
-                        sh 'sudo docker run 0e2bad82df8d '
-                    }
-                }
+            steps {
+                sh 'docker run 0e2bad82df8d'
+            }
+        }
+
         stage('Grafana') {
-                     steps{
-                         sh 'sudo docker run 57e0e31971e6 '
-                             }
-                         }
+            steps {
+                sh 'docker run 57e0e31971e6'
+            }
+        }
 
 
     }

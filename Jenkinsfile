@@ -51,14 +51,14 @@ pipeline {
          }
           stage('Docker Compose') {
             steps{
-                sh "docker-compose up -d"
+                 sh "/var/lib/jenkins/.docker/cli-plugins/docker-compose up -d"
             }
         }
-        stage('Email Notfication'){
-        		steps {
+        stage('Email Notfication') {
+        	steps{
         		    mail bcc: '', body: 'Build Success', cc: '', from: '', replyTo: '', subject: 'Jenkins Notification', to: 'chamseddine.benhamadi@esprit.tn'
-        		}
         	}
+        }
 }
 }
 

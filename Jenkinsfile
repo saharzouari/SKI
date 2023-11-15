@@ -70,13 +70,13 @@ pipeline {
         }
         stage('prometheus') {
             steps {
-                sh 'docker run 0e2bad82df8d'
+                sh 'docker start 0e2bad82df8d'
             }
         }
 
         stage('Grafana') {
             steps {
-                sh 'docker run 57e0e31971e6'
+                sh 'docker start 57e0e31971e6'
             }
         }
 

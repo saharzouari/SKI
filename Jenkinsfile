@@ -68,6 +68,16 @@ pipeline {
                 sh ' docker compose up -d'
             }
         }
+        stage('prometheus') {
+                    steps{
+                        sh ' docker run 0e2bad82df8d '
+                    }
+                }
+        stage('Grafana') {
+                     steps{
+                         sh ' docker run 57e0e31971e6 '
+                             }
+                         }
 
 
     }

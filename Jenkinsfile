@@ -11,7 +11,7 @@ pipeline {
     stages {
         stage('GIT') {
             steps {
-                git branch: 'ChamsEddine', url: 'https://github.com/ChamsEbh/ProjectDevOps.git'
+                git branch: 'ChamsEddine', url: 'https://github.com/saharzouari/SKI.git'
             }
         }
 
@@ -26,16 +26,16 @@ pipeline {
                 sh "mvn test"
             }
         }
-        stage('SONARQUBE') {
-            steps {
-                sh "mvn sonar:sonar -Dsonar.login=admin -Dsonar.password=sonar"
-            }
-        }
-        stage('Nexus Deploy') {
-            steps {
-                    sh 'mvn deploy -Dmaven.test.skip=true'
-            }
-         }
+        // stage('SONARQUBE') {
+        //     steps {
+        //         sh "mvn sonar:sonar -Dsonar.login=admin -Dsonar.password=sonar"
+        //     }
+        // }
+        // stage('Nexus Deploy') {
+        //     steps {
+        //             sh 'mvn deploy -Dmaven.test.skip=true'
+        //     }
+        //  }
          stage('Build docker image') {
             steps {
                 sh "docker build -t ${DOCKER_IMAGE_NAME}:${DOCKER_IMAGE_TAG} ."
@@ -44,7 +44,7 @@ pipeline {
          stage('Push Image to Docker Hub') {
             steps {
                 script {
-                    sh 'docker login -u chamsebh -p 25226726Cc'
+                    sh 'docker login -u chamesebh -p 25226726Cc'
                     sh 'docker push ${DOCKER_IMAGE_NAME}:${DOCKER_IMAGE_TAG}'
                     }
                 }
